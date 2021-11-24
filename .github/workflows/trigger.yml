@@ -6,18 +6,25 @@ name: CI
 on:
     workflow_dispatch:
       inputs:
-        notifications:
-          type: boolean
-          description: notifications 
+        salesline:
+          type: choice
+          options:
+            - foo
+            - bar
+            - baz
+        environment:
+          type: choice
+          options:
+            - dev
+            - qa
+            - prelive
+            - production
         multibrowser:
           type: boolean
           description: multibrowser
-        SUT_ENV:
-          type: choice
-          options:
-          - foo
-          - bar
-          - baz
+        notifications:
+          type: boolean
+          description: notifications
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,5 +48,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - run: |
-          echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+          echo "xxx ${{ github.event.inputs.salesline }}_${{ github.event.inputs.environment }}"
+          echo "- notfication ${{ github.event.inputs.notifications }}"
+          echo "- notfication ${{ github.event.inputs.multibrowser }}"
