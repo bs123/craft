@@ -5,27 +5,17 @@ name: CI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: environment
-        description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
-      choice:
-        type: choice
-        description: Make a choice
-        options:
-        - foo
-        - bar
-        - baz
+    workflow_dispatch:
+      inputs:
+        choice:
+          type: boolean
+          description: notifications
+        SUT_ENV:
+          type: choice
+          options:
+          - foo
+          - bar
+          - baz
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
