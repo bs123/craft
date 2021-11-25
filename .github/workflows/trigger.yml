@@ -48,7 +48,7 @@ jobs:
             SUT_VAR: defauzlt_def
         run: |
             if ${{ github.event.inputs.multibrowser }} == true; then
-                echo "_mult" >> $SUT_VAR
+                SUT_VAR: ${SUT_VAR}_multi
                 echo "flag set to true" 
                 echo "- SUT_VAR ${SUT_VAR}"
             else
