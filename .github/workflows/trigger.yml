@@ -47,7 +47,7 @@ jobs:
         env:
             SUT_VAR: defauzlt_def
         run: |
-            if ${{ github.event.inputs.multibrowser }} == true; then
+            if ${{ github.event.inputs.multibrowser && github.event.inputs.notifications }} == true; then
                 SUT_VAR=${SUT_VAR}_multi
                 echo "flag set to true" 
                 echo "- SUT_VAR ${SUT_VAR}"
