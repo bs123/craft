@@ -71,13 +71,13 @@ jobs:
         env:
           SUT_VAR: mmde_dev
         run: |
-          echo ${SUT_VAR}
+          echo $SUT_VAR
           if ${{ github.event.inputs.salesline }} && ${{ github.event.inputs.environment }} == true; then
               SUT_VAR=${{ github.event.inputs.salesline }}_${{ github.event.inputs.environment }}
           else if ${{ github.event.inputs.multibrowser }} == true; then
-              SUT_VAR=${SUT_VAR}_multibrowser
+              SUT_VAR=$SUT_VAR_multibrowser
           fi
-          echo SUT_VAR ${SUT_VAR} 
+          echo $SUT_VAR 
           SUT_ENV=$SUT_VAR yarn test:${{ github.event.inputs.salesline }}:kklk
 
 
