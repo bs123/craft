@@ -50,9 +50,11 @@ jobs:
             if ${{ github.event.inputs.multibrowser }} == true; then
                 echo "_mult" >> $SUT_VAR
                 echo "flag set to true" 
+                echo "- SUT_VAR ${SUT_VAR}"
             else
                 echo "flag set to false"
             fi
+            echo "- SUT_VAR ${SUT_VAR}"
       - run: |
           echo "xxx ${{ github.event.inputs.salesline }}_${{ github.event.inputs.environment }}"
           echo "- notfication ${{ github.event.inputs.notifications }}"
