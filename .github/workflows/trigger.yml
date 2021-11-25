@@ -77,7 +77,7 @@ jobs:
           else if ${{ github.event.inputs.multibrowser }} == true; then
               SUT_VAR=${SUT_VAR}_multibrowser
           fi
-          echo SUT_VAR ${SUT_VAR}
-          IS_AUTOMATED_BUILD_TEST=true VAR_SAUCE_API_URL=https://eu-central-1.saucelabs.com/rest/v1 VAR_SAUCE_USER=svc-webmobile-testing SEC_SAUCE_KEY=${{ secrets.SEC_SAUCE_KEY_DEV }} SUT_ENV=${SUT_VAR} yarn test:${{ github.event.inputs.salesline }}:sauce
+          echo SUT_VAR ${SUT_VAR} 
+          SUT_ENV=${SUT_VAR} yarn test:${{ github.event.inputs.salesline }}:kklk
 
 
