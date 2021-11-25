@@ -78,6 +78,6 @@ jobs:
               SUT_VAR=${SUT_VAR}_multibrowser
           fi
           echo SUT_VAR ${SUT_VAR} 
-          SUT_ENV=${SUT_VAR} yarn test:${{ github.event.inputs.salesline }}:kklk
+          SUT_ENV=$SUT_VAR yarn test:${{ github.event.inputs.salesline }}:kklk
 
 
