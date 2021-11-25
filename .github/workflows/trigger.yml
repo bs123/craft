@@ -48,7 +48,7 @@ jobs:
             SUT_VAR: defauzlt_def
         run: |
             if ${{ github.event.inputs.multibrowser }} == true; then
-                SUT_VAR: ${SUT_VAR}_multi
+                SUT_VAR=${SUT_VAR}_multi
                 echo "flag set to true" 
                 echo "- SUT_VAR ${SUT_VAR}"
             else
@@ -60,4 +60,18 @@ jobs:
           echo "- notfication ${{ github.event.inputs.notifications }}"
           echo "- multibrowser ${{ github.event.inputs.multibrowser }}"
           echo "- SUT_VAR ${SUT_VAR}"
+          
+      - name: Define variables
+        run: echo "Tags are > ${TAG1}"
+        env:
+          TAG1: "devmtl/rclone:2.29.1-2019-08-24-32c812f7"
+          TAG2: "devmtl/rclone:2.29.edge"
+          
+      - name: magic variables
+        env:
+            SUT_VAR: defauzlt_def
+        run: |
+           echo "::set-env name=SUT_VAR::_mutlig"
+           echo "- SUT_VAR ${SUT_VAR}"
+
 
