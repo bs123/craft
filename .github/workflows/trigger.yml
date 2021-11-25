@@ -45,9 +45,16 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+            if ${{ github.event.inputs.multibrowser }} == true; then
+                echo "flag=true" >> $GITHUB_ENV
+                echo "flag set to true" 
+            else
+                echo "flag=false" >> $GITHUB_ENV
+                echo "flag set to false"
+            fi
       - run: |
           echo "xxx ${{ github.event.inputs.salesline }}_${{ github.event.inputs.environment }}"
           echo "- notfication ${{ github.event.inputs.notifications }}"
-          echo "- notfication ${{ github.event.inputs.multibrowser }}"
+          echo "- multibrowser ${{ github.event.inputs.multibrowser }}"
+          echo "- GITHUB_ENV ${GITHUB_ENV}"
+
